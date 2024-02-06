@@ -9,6 +9,9 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.alex.yang.alextmdbnewscompose.ui.theme.AlexTMDBNewsComposeTheme
 
+/**
+ * Created by AlexYang on 2024/2/6.
+ */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
