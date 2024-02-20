@@ -2,7 +2,6 @@ package com.alex.yang.alextmdbnewscompose.movieList.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.alex.yang.alextmdbnewscompose.movieList.data.respository.MovieListRepositoryImpl
 import com.alex.yang.alextmdbnewscompose.movieList.domain.repository.IMovieListRepository
 import com.alex.yang.alextmdbnewscompose.movieList.util.Category
 import com.alex.yang.alextmdbnewscompose.movieList.util.Resource
@@ -69,12 +68,12 @@ class MovieListViewModel @Inject constructor(
                     }
 
                     is Resource.Success -> {
-                        result.data?.let { upcomingList ->
+                        result.data?.let {  popularList->
                             _movieListState.update {
                                 it.copy(
-                                    upcomingMovieList = movieListState.value.upcomingMovieList
-                                            + upcomingList.shuffled(),
-                                    upcomingMovieListPage = movieListState.value.upcomingMovieListPage + 1
+                                    popularMovieList = movieListState.value.popularMovieList
+                                            + popularList.shuffled(),
+                                    popularMovieListPage = movieListState.value.popularMovieListPage + 1
                                 )
                             }
                         }

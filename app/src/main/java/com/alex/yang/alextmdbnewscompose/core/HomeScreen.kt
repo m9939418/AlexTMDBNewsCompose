@@ -35,6 +35,8 @@ import androidx.navigation.compose.rememberNavController
 import com.alex.yang.alextmdbnewscompose.R
 import com.alex.yang.alextmdbnewscompose.movieList.presentation.MovieListUiEvent
 import com.alex.yang.alextmdbnewscompose.movieList.presentation.MovieListViewModel
+import com.alex.yang.alextmdbnewscompose.movieList.presentation.PopularMovieScreen
+import com.alex.yang.alextmdbnewscompose.movieList.presentation.UpcomingMoviesScreen
 import com.alex.yang.alextmdbnewscompose.movieList.util.Screen
 
 /**
@@ -83,10 +85,18 @@ fun HomeScreen(navController: NavHostController) {
                 startDestination = Screen.PopularMovieList.rout
             ) {
                 composable(Screen.PopularMovieList.rout) {
-//                    PopularMovieListScreen()
+                    PopularMovieScreen(
+                        navHostController = navController,
+                        movieListState = movieState,
+                        onEvent = movieListViewModel::onEvent
+                    )
                 }
                 composable(Screen.UpcomingMovieList.rout) {
-//                    UpcomingMovieListScreen()
+                    UpcomingMoviesScreen(
+                        navHostController = navController,
+                        movieListState = movieState,
+                        onEvent = movieListViewModel::onEvent
+                    )
                 }
             }
         }
