@@ -65,6 +65,8 @@ class MovieListRepositoryImpl @Inject constructor(
             val movieEntities = movieListFromApi.results.let { list ->
                 list.map { movieDTO -> movieDTO.toMovieEntity(category = category) }
             }
+            movieDatabase.movieDao.upsertMovieList(movieEntities)
+
             emit(Resource.Success(
                 data = movieEntities.map { movieEntity ->
                     movieEntity.toMovie(category)

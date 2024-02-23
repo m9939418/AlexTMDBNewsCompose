@@ -15,6 +15,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.alex.yang.alextmdbnewscompose.details.presentaion.DetailsScreen
 import com.alex.yang.alextmdbnewscompose.movieList.util.Screen
 import com.alex.yang.alextmdbnewscompose.ui.theme.AlexTMDBNewsComposeTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -50,8 +51,8 @@ class MainActivity : ComponentActivity() {
                             arguments = listOf(
                                 navArgument(name = "movieId") { type = NavType.IntType }
                             )
-                        ) { backStackEntity ->
-//                            DetailsScreen(backStackEntity)
+                        ) {
+                            DetailsScreen()
                         }
                     }
                 }
